@@ -1,0 +1,6 @@
+{
+  "name": "Deutsch Smart School",
+  "description": "Deutsch Smart School — Toshkentdagi 1-11 sinf xususiy nemis maktabi. Nemis tili, Germaniya davlat universitetlariga kafolatli yo'nalish va zamonaviy future-skills ta'limi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
