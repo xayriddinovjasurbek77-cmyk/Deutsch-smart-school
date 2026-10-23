@@ -153,15 +153,12 @@ export interface Translations {
     sectionTag: string;
     title: string;
     description: string;
-    members: Array<{
-      name: string;
-      role: string;
-      university: string;
-      experience: string;
-      specialty: string;
-      bio: string;
-      imgUrl: string;
+    standards: Array<{
+      tag: string;
+      title: string;
+      desc: string;
     }>;
+    ctaButton: string;
   };
   campuses: {
     futureTag: string;
@@ -567,52 +564,28 @@ export const translations: Record<Language, Translations> = {
       ],
     },
     faculty: {
-      sectionTag: "USTOZLAR // BIZNING XALQARO JAMOAMIZ",
-      title: "Toshkent + Germaniya. Bir jamoa.",
+      sectionTag: "USTOZLAR // PEDAGOGIK TARKIB",
+      title: "Xalqaro sifat va kuchli pedagogik jamoa",
       description:
-        "Germaniyaning yetakchi universitetlarini tamomlagan mutaxassislar, Goethe C2 darajali tilshunoslar va sanoat amaliyotchilari yagona maqsad yo'lida birlashgan.",
-      members: [
+        "Deutsch Smart School o‘qituvchilari Yevropa ta’lim standartlari, Goethe-Institut xalqaro metodikasi hamda zamonaviy pedagogik yondashuvlar asosida o‘quvchilarga ta’lim beradi.",
+      standards: [
         {
-          name: "Dr. Behruz Yusupov",
-          role: "Maktab Direktori",
-          university: "LMU München",
-          experience: "12+ yil",
-          specialty: "Boshqaruv",
-          bio: "12 yillik xalqaro boshqaruv tajribasi. Germaniya ta'lim vazirligi akkreditatsiyasidan o'tgan ekspert.",
-          imgUrl:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuBR6a61UOXulH26JCjAy5TLrXrI7NFQ8_ThpxDRRkVZQhDNAHt28b3WFSvuPoTK5kSzRNb2CZm6GYL5DBEo4TVhptuTlbnN5QgmIVlUAYKjq0TYqy9w7cvYnxq7LvFGIqluxil6NOP9SZlntctL0ZBYiClufFE2coBwS5COBK_cCtZRngsHFf8k8a3WBE8P-_XAWkRPacmMudJPYxsT-E-hl4yRMxebi98ZqnekOGe8vy8BtJPELRUmGw",
+          tag: "01 · METODIKA",
+          title: "Goethe-Institut Standartlari",
+          desc: "Barcha til darslari Goethe-Institut xalqaro dasturi bo‘yicha, A1 dan C1 gacha bo‘lgan bosqichlarda tizimli olib boriladi.",
         },
         {
-          name: "Dilnoza Karimova",
-          role: "Bosh Nemis Tili Ustozi",
-          university: "Goethe C2 GDS",
-          experience: "9 yil",
-          specialty: "TestDaF / C2",
-          bio: "8 yil Berlinda ta'lim olgan va dars bergan. TestDaF va Studienkolleg imtihonlari bo'yicha rasmiy kordinator.",
-          imgUrl:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAnqhykcYV_AihougDvtU52q0dhd-ri-s9B99yk_xwsXPdooppAcIxX1O8yhY6mu1NOkC8H4jSr_pSKCfqwi_KhUu7AeXJd082c3qgzvD3VOcoH8Zslw8ScvNc681KBKNuSD_5WKmmGYMYM2zzPqNSTWRoQU0bNiiCDnr1XoIdeQ6WdMds1gX7CnBePgM9rBbPsUdl7QCsKPqEuHEuNcPQmCR37cNYF1LsyJDObEVAvHe_CHwYtAZ7LCg",
+          tag: "02 · TARKIB",
+          title: "Kuchli Mutaxassislar",
+          desc: "Goethe C1/C2 darajali tilshunoslar, malakali fan ustozlari va Germaniya OTMlari talablari bo‘yicha tajribali metodistlar.",
         },
         {
-          name: "Sardor Alimov",
-          role: "Digital Farm Rahbari",
-          university: "IT Park Lead",
-          experience: "7 yil",
-          specialty: "AI & Coding",
-          bio: "Sun'iy intellekt va Vibe coding bo'yicha amaliyotchi mutaxassis. Xalqaro startaplar mentori va arxitektori.",
-          imgUrl:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuBrwoFaJqrhSx1zA5fncghtBa8n7ePBJX-qXya0k8isvZKdmDtuByHoQhx9h8LdJOIWXrxMJeHQWCpLTsMzDnO5Ew2iDd2Zfs2zxj2edpUcehPs_FDwOD6DXSVpng4c41-WGPD7yCgubsPNeUKZ74c8I62ioL5s0RDCqgtt-5xj0OfTrA-ROoFA1dHSJGwhz_wjYt_MPhVueEdLqYOX4Bo4A0npj_2ug7thG7n19tTZpuMtRFzUGgRrjw",
-        },
-        {
-          name: "Otabek Shukurov",
-          role: "Universitetga Maslahatchi",
-          university: "RWTH Aachen",
-          experience: "11 yil",
-          specialty: "Studienberater",
-          bio: "TUM va RWTH Aachen bilan bevosita aloqada. 150+ dan ortiq o'zbek talabasini Germaniyaga muvaffaqiyatli yo'llagan.",
-          imgUrl:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAxj_QuVFMb-ZzhyP4jjhFxIgQatK8xX4q8u3bsJoUBV0kEhLQLdD2pd7XEO8aensV5E9HZPiFL5cu92N3lB-ljYfiJZHhtc_FdLQ4t1SI-DRpo-ZuJGoqQ8-IY2udTVZrgKVxQUkCSdWBiMpL7Mwxd8XOLIpcWM8-u0R3WHqvnS9f469mBQt-fS3oN3Hd0EerWB36kRVrCGLBKn-53G4s_UCWX1HSz8enfMNv1jnLkKt6KN0HSqknB7w",
+          tag: "03 · MUHIT",
+          title: "Immersiv Nemis Muhiti",
+          desc: "Darslar faqat nazariya emas, kundalik muloqot, interaktiv loyihalar va amaliy ko‘nikmalar orqali tabiiy ravishda o‘zlashtiriladi.",
         },
       ],
+      ctaButton: "Maktabga tashrif buyurish",
     },
     campuses: {
       futureTag: "2028-YIL REJASI // KELAJAK KAMPUSI",
@@ -1043,52 +1016,28 @@ export const translations: Record<Language, Translations> = {
       ],
     },
     faculty: {
-      sectionTag: "ПРЕПОДАВАТЕЛИ // МЕЖДУНАРОДНАЯ КОМАНДА",
-      title: "Ташкент + Германия. Единая команда.",
+      sectionTag: "ПРЕПОДАВАТЕЛИ // АКАДЕМИЧЕСКИЙ СОСТАВ",
+      title: "Международные стандарты и сильный педагогический состав",
       description:
-        "Выпускники лучших вузов Германии, сертифицированные преподаватели Goethe C2 и практикующие эксперты индустрии.",
-      members: [
+        "Преподаватели Deutsch Smart School обучают по европейским стандартам, международной методике Goethe-Institut и современным педагогическим подходам.",
+      standards: [
         {
-          name: "Д-р Бехруз Юсупов",
-          role: "Директор школы",
-          university: "LMU München",
-          experience: "12+ лет",
-          specialty: "Управление",
-          bio: "12 лет международного управленческого опыта. Аккредитованный эксперт министерства образования Германии.",
-          imgUrl:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuBR6a61UOXulH26JCjAy5TLrXrI7NFQ8_ThpxDRRkVZQhDNAHt28b3WFSvuPoTK5kSzRNb2CZm6GYL5DBEo4TVhptuTlbnN5QgmIVlUAYKjq0TYqy9w7cvYnxq7LvFGIqluxil6NOP9SZlntctL0ZBYiClufFE2coBwS5COBK_cCtZRngsHFf8k8a3WBE8P-_XAWkRPacmMudJPYxsT-E-hl4yRMxebi98ZqnekOGe8vy8BtJPELRUmGw",
+          tag: "01 · МЕТОДИКА",
+          title: "Стандарты Goethe-Institut",
+          desc: "Все уроки немецкого языка проводятся по международной программе Goethe-Institut от уровня A1 до C1.",
         },
         {
-          name: "Дильноза Каримова",
-          role: "Главный методист немецкого языка",
-          university: "Goethe C2 GDS",
-          experience: "9 лет",
-          specialty: "TestDaF / C2",
-          bio: "8 лет проживания и преподавания в Берлине. Официальный координатор программ TestDaF и Studienkolleg.",
-          imgUrl:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAnqhykcYV_AihougDvtU52q0dhd-ri-s9B99yk_xwsXPdooppAcIxX1O8yhY6mu1NOkC8H4jSr_pSKCfqwi_KhUu7AeXJd082c3qgzvD3VOcoH8Zslw8ScvNc681KBKNuSD_5WKmmGYMYM2zzPqNSTWRoQU0bNiiCDnr1XoIdeQ6WdMds1gX7CnBePgM9rBbPsUdl7QCsKPqEuHEuNcPQmCR37cNYF1LsyJDObEVAvHe_CHwYtAZ7LCg",
+          tag: "02 · СОСТАВ",
+          title: "Квалифицированные педагоги",
+          desc: "Лингвисты с сертификатами Goethe C1/C2, опытные преподаватели профильных предметов и академические кураторы.",
         },
         {
-          name: "Сардор Алимов",
-          role: "Руководитель Digital Farm",
-          university: "IT Park Lead",
-          experience: "7 лет",
-          specialty: "AI & Coding",
-          bio: "Практикующий специалист по искусственному интеллекту и Vibe coding. Ментор международных стартапов.",
-          imgUrl:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuBrwoFaJqrhSx1zA5fncghtBa8n7ePBJX-qXya0k8isvZKdmDtuByHoQhx9h8LdJOIWXrxMJeHQWCpLTsMzDnO5Ew2iDd2Zfs2zxj2edpUcehPs_FDwOD6DXSVpng4c41-WGPD7yCgubsPNeUKZ74c8I62ioL5s0RDCqgtt-5xj0OfTrA-ROoFA1dHSJGwhz_wjYt_MPhVueEdLqYOX4Bo4A0npj_2ug7thG7n19tTZpuMtRFzUGgRrjw",
-        },
-        {
-          name: "Отабек Шукуров",
-          role: "Академический советник по вузам Германии",
-          university: "RWTH Aachen",
-          experience: "11 лет",
-          specialty: "Studienberater",
-          bio: "Прямые связи с TUM и RWTH Aachen. Более 150 узбекских студентов успешно зачислены в вузы Германии.",
-          imgUrl:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAxj_QuVFMb-ZzhyP4jjhFxIgQatK8xX4q8u3bsJoUBV0kEhLQLdD2pd7XEO8aensV5E9HZPiFL5cu92N3lB-ljYfiJZHhtc_FdLQ4t1SI-DRpo-ZuJGoqQ8-IY2udTVZrgKVxQUkCSdWBiMpL7Mwxd8XOLIpcWM8-u0R3WHqvnS9f469mBQt-fS3oN3Hd0EerWB36kRVrCGLBKn-53G4s_UCWX1HSz8enfMNv1jnLkKt6KN0HSqknB7w",
+          tag: "03 · СРЕДА",
+          title: "Иммерсивная языковая среда",
+          desc: "Язык осваивается через интерактивную практику, живое общение и проектное обучение без зубрёжки.",
         },
       ],
+      ctaButton: "Записаться на визит",
     },
     campuses: {
       futureTag: "ПЛАН 2028 // КАМПУС БУДУЩЕГО",
@@ -1519,52 +1468,28 @@ export const translations: Record<Language, Translations> = {
       ],
     },
     faculty: {
-      sectionTag: "LEHRKRÄFTE // UNSER TEAM",
-      title: "Taschkent + Deutschland. Ein Team.",
+      sectionTag: "LEHRKRÄFTE // PÄDAGOGISCHES TEAM",
+      title: "Internationale Bildungsstandards & Pädagogische Exzellenz",
       description:
-        "Absolventen führender deutscher Universitäten, zertifizierte Goethe C2-Germanisten und Branchenexperten vereint für Ihre Kinder.",
-      members: [
+        "Die Lehrkräfte der Deutsch Smart School unterrichten nach europäischen Bildungsstandards, der anerkannten Goethe-Institut-Methodik und modernen didaktischen Ansätzen.",
+      standards: [
         {
-          name: "Dr. Behruz Yusupov",
-          role: "Schuldirektor",
-          university: "LMU München",
-          experience: "12+ Jahre",
-          specialty: "Schulleitung",
-          bio: "12 Jahre internationale Schulleitungserfahrung. Akkreditierter Experte für deutsche Bildungsstandards.",
-          imgUrl:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuBR6a61UOXulH26JCjAy5TLrXrI7NFQ8_ThpxDRRkVZQhDNAHt28b3WFSvuPoTK5kSzRNb2CZm6GYL5DBEo4TVhptuTlbnN5QgmIVlUAYKjq0TYqy9w7cvYnxq7LvFGIqluxil6NOP9SZlntctL0ZBYiClufFE2coBwS5COBK_cCtZRngsHFf8k8a3WBE8P-_XAWkRPacmMudJPYxsT-E-hl4yRMxebi98ZqnekOGe8vy8BtJPELRUmGw",
+          tag: "01 · METHODIK",
+          title: "Goethe-Institut Standards",
+          desc: "Der gesamte Deutschunterricht basiert auf dem internationalen Rahmen des Goethe-Instituts von A1 bis C1.",
         },
         {
-          name: "Dilnoza Karimova",
-          role: "Leitende Deutschdozentin",
-          university: "Goethe C2 GDS",
-          experience: "9 Jahre",
-          specialty: "TestDaF / C2",
-          bio: "8 Jahre Studium und Lehrtätigkeit in Berlin. Offizielle Koordinatorin für TestDaF und Studienkollegs.",
-          imgUrl:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAnqhykcYV_AihougDvtU52q0dhd-ri-s9B99yk_xwsXPdooppAcIxX1O8yhY6mu1NOkC8H4jSr_pSKCfqwi_KhUu7AeXJd082c3qgzvD3VOcoH8Zslw8ScvNc681KBKNuSD_5WKmmGYMYM2zzPqNSTWRoQU0bNiiCDnr1XoIdeQ6WdMds1gX7CnBePgM9rBbPsUdl7QCsKPqEuHEuNcPQmCR37cNYF1LsyJDObEVAvHe_CHwYtAZ7LCg",
+          tag: "02 · QUALIFIKATION",
+          title: "Erfahrene Fachdozenten",
+          desc: "Germanisten mit Goethe C1/C2-Zertifikaten, erfahrene Fachlehrer und Berater für den Übergang an deutsche Universitäten.",
         },
         {
-          name: "Sardor Alimov",
-          role: "Leiter Digital Farm",
-          university: "IT Park Lead",
-          experience: "7 Jahre",
-          specialty: "KI & Coding",
-          bio: "Spezialist für Künstliche Intelligenz und Vibe Coding. Mentor internationaler Startup-Projekte.",
-          imgUrl:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuBrwoFaJqrhSx1zA5fncghtBa8n7ePBJX-qXya0k8isvZKdmDtuByHoQhx9h8LdJOIWXrxMJeHQWCpLTsMzDnO5Ew2iDd2Zfs2zxj2edpUcehPs_FDwOD6DXSVpng4c41-WGPD7yCgubsPNeUKZ74c8I62ioL5s0RDCqgtt-5xj0OfTrA-ROoFA1dHSJGwhz_wjYt_MPhVueEdLqYOX4Bo4A0npj_2ug7thG7n19tTZpuMtRFzUGgRrjw",
-        },
-        {
-          name: "Otabek Shukurov",
-          role: "Akademischer Studienberater",
-          university: "RWTH Aachen",
-          experience: "11 Jahre",
-          specialty: "Studienberater",
-          bio: "Direkte Kontakte zu TUM und RWTH Aachen. Über 150 usbekische Studenten erfolgreich an deutsche Unis vermittelt.",
-          imgUrl:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAxj_QuVFMb-ZzhyP4jjhFxIgQatK8xX4q8u3bsJoUBV0kEhLQLdD2pd7XEO8aensV5E9HZPiFL5cu92N3lB-ljYfiJZHhtc_FdLQ4t1SI-DRpo-ZuJGoqQ8-IY2udTVZrgKVxQUkCSdWBiMpL7Mwxd8XOLIpcWM8-u0R3WHqvnS9f469mBQt-fS3oN3Hd0EerWB36kRVrCGLBKn-53G4s_UCWX1HSz8enfMNv1jnLkKt6KN0HSqknB7w",
+          tag: "03 · LERNUMFELD",
+          title: "Immersive Sprachumgebung",
+          desc: "Natürlicher Spracherwerb durch interaktive Kommunikation, praktische Projekte und eine lebendige deutsche Schulkultur.",
         },
       ],
+      ctaButton: "Schulbesuch anfragen",
     },
     campuses: {
       futureTag: "CAMPUS 2028 // ZUKUNFTSPROJEKT",
@@ -1995,52 +1920,28 @@ export const translations: Record<Language, Translations> = {
       ],
     },
     faculty: {
-      sectionTag: "FACULTY // INTERNATIONAL TEAM",
-      title: "Tashkent + Germany. One Unified Team.",
+      sectionTag: "FACULTY // ACADEMIC EXCELLENCE",
+      title: "International Standards & Dedicated Faculty",
       description:
-        "Graduates of top German universities, certified Goethe C2 linguists, and technology leaders dedicated to student success.",
-      members: [
+        "Educators at Deutsch Smart School instruct according to European educational standards, verified Goethe-Institut methodology, and student-centered pedagogy.",
+      standards: [
         {
-          name: "Dr. Behruz Yusupov",
-          role: "School Director",
-          university: "LMU München",
-          experience: "12+ Years",
-          specialty: "Leadership",
-          bio: "12 years of international academic leadership experience. Accredited expert in German educational frameworks.",
-          imgUrl:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuBR6a61UOXulH26JCjAy5TLrXrI7NFQ8_ThpxDRRkVZQhDNAHt28b3WFSvuPoTK5kSzRNb2CZm6GYL5DBEo4TVhptuTlbnN5QgmIVlUAYKjq0TYqy9w7cvYnxq7LvFGIqluxil6NOP9SZlntctL0ZBYiClufFE2coBwS5COBK_cCtZRngsHFf8k8a3WBE8P-_XAWkRPacmMudJPYxsT-E-hl4yRMxebi98ZqnekOGe8vy8BtJPELRUmGw",
+          tag: "01 · METHODOLOGY",
+          title: "Goethe-Institut Standards",
+          desc: "All German language instruction adheres to official Goethe-Institut frameworks advancing from A1 to C1 proficiency.",
         },
         {
-          name: "Dilnoza Karimova",
-          role: "Head German Methodologist",
-          university: "Goethe C2 GDS",
-          experience: "9 Years",
-          specialty: "TestDaF / C2",
-          bio: "8 years of study and teaching in Berlin. Official coordinator for TestDaF and Studienkolleg examinations.",
-          imgUrl:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAnqhykcYV_AihougDvtU52q0dhd-ri-s9B99yk_xwsXPdooppAcIxX1O8yhY6mu1NOkC8H4jSr_pSKCfqwi_KhUu7AeXJd082c3qgzvD3VOcoH8Zslw8ScvNc681KBKNuSD_5WKmmGYMYM2zzPqNSTWRoQU0bNiiCDnr1XoIdeQ6WdMds1gX7CnBePgM9rBbPsUdl7QCsKPqEuHEuNcPQmCR37cNYF1LsyJDObEVAvHe_CHwYtAZ7LCg",
+          tag: "02 · QUALIFICATION",
+          title: "Certified Instructors",
+          desc: "Linguists holding Goethe C1/C2 credentials, certified subject educators, and experienced academic mentors.",
         },
         {
-          name: "Sardor Alimov",
-          role: "Director of Digital Farm",
-          university: "IT Park Lead",
-          experience: "7 Years",
-          specialty: "AI & Coding",
-          bio: "Practitioner in Applied Artificial Intelligence and Vibe Coding. Mentor to international tech startups.",
-          imgUrl:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuBrwoFaJqrhSx1zA5fncghtBa8n7ePBJX-qXya0k8isvZKdmDtuByHoQhx9h8LdJOIWXrxMJeHQWCpLTsMzDnO5Ew2iDd2Zfs2zxj2edpUcehPs_FDwOD6DXSVpng4c41-WGPD7yCgubsPNeUKZ74c8I62ioL5s0RDCqgtt-5xj0OfTrA-ROoFA1dHSJGwhz_wjYt_MPhVueEdLqYOX4Bo4A0npj_2ug7thG7n19tTZpuMtRFzUGgRrjw",
-        },
-        {
-          name: "Otabek Shukurov",
-          role: "University Admissions Advisor",
-          university: "RWTH Aachen",
-          experience: "11 Years",
-          specialty: "Studienberater",
-          bio: "Direct liaison with TUM and RWTH Aachen. Guided 150+ students into prestigious German state universities.",
-          imgUrl:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAxj_QuVFMb-ZzhyP4jjhFxIgQatK8xX4q8u3bsJoUBV0kEhLQLdD2pd7XEO8aensV5E9HZPiFL5cu92N3lB-ljYfiJZHhtc_FdLQ4t1SI-DRpo-ZuJGoqQ8-IY2udTVZrgKVxQUkCSdWBiMpL7Mwxd8XOLIpcWM8-u0R3WHqvnS9f469mBQt-fS3oN3Hd0EerWB36kRVrCGLBKn-53G4s_UCWX1HSz8enfMNv1jnLkKt6KN0HSqknB7w",
+          tag: "03 · ENVIRONMENT",
+          title: "Immersive Learning",
+          desc: "Accelerated language acquisition through daily dialogue, active engagement, and real-world project assignments.",
         },
       ],
+      ctaButton: "Book Campus Visit",
     },
     campuses: {
       futureTag: "2028 MASTERPLAN // ECO-CAMPUS",

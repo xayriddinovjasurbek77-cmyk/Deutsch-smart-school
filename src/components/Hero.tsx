@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, BookOpen, CheckCircle, GraduationCap, Clock, Award, Shield } from 'lucide-react';
+import { ArrowRight, ShieldCheck, CheckCircle2, Sparkles, Building2, GraduationCap, Award, Clock } from 'lucide-react';
 import type { Translations } from '../data/translations';
 import { useSound } from '../context/SoundContext';
 
@@ -14,225 +14,211 @@ export const Hero: React.FC<HeroProps> = ({ t, onOpenBooking }) => {
 
   const handleScrollToPrograms = () => {
     playSound('click');
-    const el = document.getElementById('dasturlar');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    const target = document.querySelector('#dasturlar');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
-  return (
-    <section className="relative w-full bg-[#FAF9F6] pt-28 sm:pt-32 pb-16 lg:pb-24 overflow-hidden border-b border-[#E8E8E4]">
-      {/* Subtle Bauhaus architectural background grid */}
-      <div
-        className="absolute inset-0 opacity-[0.035] pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(#000000 1px, transparent 1px)',
-          backgroundSize: '24px 24px',
-        }}
-      />
+  const handleBookingClick = () => {
+    playSound('cta');
+    onOpenBooking();
+  };
 
-      {/* Decorative ambient light gradient */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#FFCE00]/10 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute top-1/2 left-0 w-80 h-80 bg-[#DD0000]/5 rounded-full blur-3xl pointer-events-none -z-10" />
+  const statIcons = [Building2, GraduationCap, Award, Clock];
+
+  const stats = [
+    { label: t.hero.statBranchesLabel, val: t.hero.statBranchesVal, icon: statIcons[0], color: 'text-neutral-900' },
+    { label: t.hero.statLevelLabel, val: t.hero.statLevelVal, icon: statIcons[1], color: 'text-[#DD0000]' },
+    { label: t.hero.statTuitionLabel, val: t.hero.statTuitionVal, icon: statIcons[2], color: 'text-[#DD0000]' },
+    { label: t.hero.statDayLabel, val: t.hero.statDayVal, icon: statIcons[3], color: 'text-neutral-900' },
+  ];
+
+  return (
+    <section className="relative w-full pt-28 sm:pt-32 lg:pt-36 pb-16 lg:pb-24 bg-white border-b border-[#E8E8E4] overflow-hidden">
+      {/* Background subtle German flag ambient glow */}
+      <div className="absolute top-10 right-10 w-[500px] h-[500px] bg-[#FFCE00]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-20 left-10 w-[450px] h-[450px] bg-[#DD0000]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Overline with German Flag colors + Goethe accreditation */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-wrap items-center justify-between gap-3 mb-6"
-        >
-          <div className="inline-flex items-center gap-2.5 bg-white px-3.5 py-1.5 rounded-lg border border-[#E8E8E4] shadow-2xs">
-            <div className="flex items-center gap-1">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#0D0D0D]" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#DD0000]" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[#FFCE00]" />
-            </div>
-            <span className="font-bold text-[11px] sm:text-[12px] tracking-[0.14em] uppercase text-neutral-800">
-              {t.hero.badge}
-            </span>
-          </div>
-
-          <div className="inline-flex items-center gap-2 text-[12px] font-semibold text-neutral-600 bg-white/70 backdrop-blur-xs px-3 py-1 rounded-md border border-[#E8E8E4]">
-            <Award className="w-4 h-4 text-[#DD0000]" />
-            <span>{t.hero.accreditation}</span>
-          </div>
-        </motion.div>
-
-        {/* 12-Column Hero Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Column: Headlines & CTA (7 cols) */}
-          <div className="lg:col-span-7 flex flex-col justify-between">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+          {/* Left Column: Headline, Description & CTAs */}
+          <div className="lg:col-span-7 space-y-6 sm:space-y-7">
+            {/* German Flag Badge & Accreditation */}
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex flex-wrap items-center gap-2.5 px-3 py-1.5 rounded-full bg-[#FAF9F6] border border-[#E8E8E4] shadow-2xs"
             >
-              <h1 className="text-[36px] sm:text-[46px] lg:text-[54px] font-extrabold tracking-tight leading-[1.08] text-neutral-900 mb-5">
-                {t.hero.titlePart1}{' '}
-                <span className="relative inline-block text-[#DD0000]">
-                  {t.hero.titleHighlight}
-                  <svg
-                    className="absolute -bottom-1 left-0 w-full h-2.5 text-[#FFCE00]/70"
-                    viewBox="0 0 100 12"
-                    preserveAspectRatio="none"
-                  >
-                    <path
-                      d="M0 6 Q 50 12 100 6"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="5"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </span>{' '}
-                {t.hero.titlePart2}
-              </h1>
-
-              <p className="text-[16px] sm:text-[18px] text-neutral-600 leading-relaxed max-w-2xl mb-8">
-                {t.hero.description}
-              </p>
+              <div className="flex items-center gap-0.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-black" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#DD0000]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#FFCE00]" />
+              </div>
+              <span className="text-[11px] font-mono font-bold tracking-wider text-neutral-700 uppercase">
+                {t.hero.badge}
+              </span>
+              <span className="text-neutral-300 hidden sm:inline">|</span>
+              <span className="text-[11px] font-medium text-neutral-600 hidden sm:inline-flex items-center gap-1">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                {t.hero.accreditation}
+              </span>
             </motion.div>
 
-            {/* CTAs */}
+            {/* Main Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-[34px] sm:text-[44px] lg:text-[54px] font-black text-neutral-900 tracking-tight leading-[1.12]"
+            >
+              {t.hero.titlePart1}{' '}
+              <span className="text-[#DD0000] underline decoration-[#FFCE00] decoration-wavy decoration-2">
+                {t.hero.titleHighlight}
+              </span>{' '}
+              {t.hero.titlePart2}
+            </motion.h1>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-[16px] sm:text-[18px] text-neutral-600 leading-relaxed max-w-2xl font-normal"
+            >
+              {t.hero.description}
+            </motion.p>
+
+            {/* Action Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.35 }}
-              className="flex flex-wrap items-center gap-4"
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-wrap items-center gap-4 pt-2"
             >
-              <motion.button
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                onMouseEnter={() => playSound('hover')}
-                onClick={() => {
-                  playSound('cta');
-                  onOpenBooking();
-                }}
-                type="button"
-                className="inline-flex items-center justify-center gap-2 bg-[#DD0000] hover:bg-[#B80000] text-white font-bold text-[15px] sm:text-[16px] px-7 py-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
+              <button
+                onClick={handleBookingClick}
+                className="inline-flex items-center gap-2.5 bg-[#DD0000] hover:bg-[#B80000] active:scale-[0.98] text-white px-7 py-3.5 rounded-xl font-bold text-sm sm:text-base shadow-sm hover:shadow-md transition-all cursor-pointer"
               >
                 <span>{t.hero.primaryCta}</span>
-                <ArrowRight className="w-5 h-5" />
-              </motion.button>
+                <ArrowRight className="w-4 h-4" />
+              </button>
 
-              <motion.button
-                whileHover={{ scale: 1.02, y: -1 }}
-                whileTap={{ scale: 0.98 }}
+              <button
                 onClick={handleScrollToPrograms}
-                type="button"
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-neutral-100 text-neutral-900 border border-[#E8E8E4] font-semibold text-[15px] sm:text-[16px] px-6 py-4 rounded-xl shadow-2xs hover:shadow-sm transition-all duration-200 cursor-pointer"
+                className="inline-flex items-center gap-2 bg-white hover:bg-neutral-50 active:scale-[0.98] text-neutral-800 px-6 py-3.5 rounded-xl font-semibold text-sm sm:text-base border border-[#E8E8E4] shadow-2xs hover:border-neutral-300 transition-all cursor-pointer"
               >
-                <BookOpen className="w-4 h-4 text-[#DD0000]" />
                 <span>{t.hero.secondaryCta}</span>
-              </motion.button>
+              </button>
             </motion.div>
 
-            {/* Live Fast-facts Matrix Strip */}
+            {/* Key Quick Stats Grid */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-[#E8E8E4]"
+            >
+              {stats.map((stat, idx) => {
+                const Icon = stat.icon;
+                return (
+                  <div key={idx} className="bg-[#FAF9F6] p-3 rounded-xl border border-[#E8E8E4]">
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <Icon className={`w-3.5 h-3.5 ${stat.color}`} />
+                      <span className="text-[10px] font-mono font-bold text-neutral-500 uppercase tracking-wider">
+                        {stat.label}
+                      </span>
+                    </div>
+                    <span className="text-[14px] sm:text-[15px] font-extrabold text-neutral-900 block truncate">
+                      {stat.val}
+                    </span>
+                  </div>
+                );
+              })}
+            </motion.div>
+          </div>
+
+          {/* Right Column: High Quality School Entrance Visual & Floating Badges */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="lg:col-span-5 relative"
+          >
+            {/* Visual Container */}
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#E8E8E4] bg-neutral-100 aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3]">
+              <img
+                src="/deutsch-smart-school-entrance.svg"
+                alt="Deutsch Smart School Toshkent"
+                onError={(e) => {
+                  const target = e.currentTarget as HTMLImageElement;
+                  if (!target.dataset.fallback) {
+                    target.dataset.fallback = 'true';
+                    target.src = '/assets/aistudio/deutsch-smart-school-entrance-65MP_63a690b7.jpg';
+                  }
+                }}
+                className="w-full h-full object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none" />
+
+              {/* German Quality Stamp on Image */}
+              <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/60 shadow-md flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-[#DD0000] animate-pulse" />
+                <span className="text-[11px] font-mono font-bold text-neutral-900 tracking-wider">
+                  DEUTSCH SMART
+                </span>
+              </div>
+            </div>
+
+            {/* Top Floating Badge */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="absolute -top-6 -right-3 sm:-right-6 bg-white p-4 rounded-2xl border border-[#E8E8E4] shadow-xl max-w-[240px] z-20 hidden sm:block"
+            >
+              <div className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-xl bg-[#DD0000]/10 flex items-center justify-center text-[#DD0000] shrink-0">
+                  <Sparkles className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold text-[#DD0000] tracking-wider uppercase block mb-0.5">
+                    {t.hero.floatingBadgeTopTitle}
+                  </span>
+                  <span className="text-[13px] font-bold text-neutral-900 block leading-snug">
+                    {t.hero.floatingBadgeTopSubtitle}
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Bottom Floating Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-10 p-4 sm:p-5 bg-white/80 backdrop-blur-sm rounded-xl border border-[#E8E8E4] shadow-2xs"
+              className="absolute -bottom-6 -left-3 sm:-left-6 bg-white p-4 rounded-2xl border border-[#E8E8E4] shadow-xl max-w-[270px] z-20"
             >
-              <div className="border-r border-[#E8E8E4]/80 pr-2">
-                <span className="block text-[11px] font-bold text-neutral-500 uppercase tracking-wider mb-0.5">
-                  {t.hero.statBranchesLabel}
-                </span>
-                <span className="font-extrabold text-[14px] sm:text-[15px] text-neutral-900">
-                  {t.hero.statBranchesVal}
-                </span>
-              </div>
-              <div className="sm:border-r border-[#E8E8E4]/80 pr-2">
-                <span className="block text-[11px] font-bold text-neutral-500 uppercase tracking-wider mb-0.5">
-                  {t.hero.statLevelLabel}
-                </span>
-                <span className="font-extrabold text-[14px] sm:text-[15px] text-[#DD0000]">
-                  {t.hero.statLevelVal}
-                </span>
-              </div>
-              <div className="border-r border-[#E8E8E4]/80 pr-2 pt-2 sm:pt-0">
-                <span className="block text-[11px] font-bold text-neutral-500 uppercase tracking-wider mb-0.5">
-                  {t.hero.statTuitionLabel}
-                </span>
-                <span className="font-extrabold text-[14px] sm:text-[15px] text-neutral-900">
-                  {t.hero.statTuitionVal}
-                </span>
-              </div>
-              <div className="pt-2 sm:pt-0">
-                <span className="block text-[11px] font-bold text-neutral-500 uppercase tracking-wider mb-0.5">
-                  {t.hero.statDayLabel}
-                </span>
-                <span className="font-extrabold text-[14px] sm:text-[15px] text-neutral-900">
-                  {t.hero.statDayVal}
-                </span>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Right Column: Hero Visual Canvas (5 cols) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 relative mt-4 lg:mt-0"
-          >
-            <div className="relative rounded-2xl overflow-hidden shadow-xl bg-neutral-950 border border-[#E8E8E4] group">
-              <motion.img
-                whileHover={{ scale: 1.03 }}
-                transition={{ duration: 0.6 }}
-                alt="Deutsch Smart School o'quvchilari zamonaviy nemis sinfxonasida dars jarayonida"
-                className="w-full h-[440px] sm:h-[480px] object-cover object-center filter brightness-[0.98] contrast-[1.02]"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcF9gR8hkqWvclzvSkmkHfGjEood3N8hcC2YGSy527TabC8XK-D6IXuFSy8cXz8QVjA70kwNFh-zXmCCqxvsRyC57dM8FzntCwxKS2P1B2zLn_ACGqY3hHWZowYohYyvinw6Qvf1wSwBlDBHGxBd2zk-pFKRP1-zrwxY-sRepoWNgi9Xc895klPRa7Hyr7bZzr7QU_mv2sfYF0vJ3fmZWYMg1c1FpLNH_vlUx7CsuvK3l1MTQZ1xOhOA"
-              />
-
-              {/* Scrim gradient overlay for architectural feel */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
-
-              {/* Floating Top Accreditation Badge */}
-              <motion.div
-                initial={{ opacity: 0, x: -15 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.6, duration: 0.5 }}
-                className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3.5 py-2.5 rounded-xl shadow-lg border border-white/60 flex items-center gap-2.5 max-w-[280px]"
-              >
-                <div className="w-8 h-8 rounded-lg bg-[#DD0000]/10 flex items-center justify-center text-[#DD0000] shrink-0">
-                  <GraduationCap className="w-4 h-4" />
+              <div className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
+                  <CheckCircle2 className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="block text-[10px] font-bold text-neutral-500 uppercase tracking-wider">
-                    {t.hero.floatingBadgeTopTitle}
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700">
+                      {t.hero.floatingBadgeBottomBadge}
+                    </span>
+                  </div>
+                  <span className="text-[13px] font-bold text-neutral-900 block leading-snug mb-0.5">
+                    {t.hero.floatingBadgeBottomTitle}
                   </span>
-                  <span className="font-extrabold text-[12px] sm:text-[13px] text-neutral-900 leading-tight block">
-                    {t.hero.floatingBadgeTopSubtitle}
+                  <span className="text-[11px] text-neutral-500 block leading-tight">
+                    {t.hero.floatingBadgeBottomSubtitle}
                   </span>
                 </div>
-              </motion.div>
-
-              {/* Floating Bottom Schedule Footnote */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.75, duration: 0.5 }}
-                className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 sm:p-4 rounded-xl shadow-xl border border-white/60 flex items-center justify-between gap-3"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-[#FAF9F6] border border-[#E8E8E4] flex items-center justify-center text-[#DD0000] shrink-0">
-                    <Clock className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="font-extrabold text-[13px] sm:text-[14px] text-neutral-900 leading-tight">
-                      {t.hero.floatingBadgeBottomTitle}
-                    </p>
-                    <p className="text-[11px] sm:text-[12px] text-neutral-500 font-medium">
-                      {t.hero.floatingBadgeBottomSubtitle}
-                    </p>
-                  </div>
-                </div>
-                <span className="bg-[#FAF9F6] border border-[#E8E8E4] text-[11px] font-bold px-2.5 py-1 rounded text-neutral-800 shrink-0">
-                  {t.hero.floatingBadgeBottomBadge}
-                </span>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

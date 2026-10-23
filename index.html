@@ -12,10 +12,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      // In preview environments, suppress unhandled WebSocket connection errors from @vite/client
+      window.addEventListener('unhandledrejection', function(event) {
+        var reason = event && event.reason;
+        if (reason && (
+          (reason.message && (reason.message.indexOf('WebSocket') !== -1 || reason.message.indexOf('ws') !== -1)) ||
+          (reason.stack && reason.stack.indexOf('@vite/client') !== -1)
+        )) {
+          event.preventDefault();
+        }
+      });
+      window.addEventListener('error', function(event) {
+        if (event && (
+          (event.filename && event.filename.indexOf('@vite/client') !== -1) ||
+          (event.message && (event.message.indexOf('WebSocket') !== -1 || event.message.indexOf('ws') !== -1))
+        )) {
+          event.preventDefault();
+        }
+      });
+    </script>
   </head>
-  <body class="bg-[#faf9f6] text-[#1a1c1a] antialiased selection:bg-[#DD0000] selection:text-white">
+  <body class="bg-[#FAF9F6] text-neutral-900 antialiased selection:bg-[#DD0000] selection:text-white">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

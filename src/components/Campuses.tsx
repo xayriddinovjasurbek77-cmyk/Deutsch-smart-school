@@ -109,17 +109,26 @@ export const Campuses: React.FC<CampusesProps> = ({ t }) => {
                 <span>{t.campuses.yashnobodAddress}</span>
               </p>
 
-              {/* Map Graphic Preview with Coordinate Pill */}
-              <div className="h-52 rounded-2xl overflow-hidden relative shadow-inner bg-neutral-100 border border-[#E8E8E4] mb-6 group">
+              {/* Yashnobod Campus Building Photo with Coordinate Badge */}
+              <div className="h-60 sm:h-72 rounded-2xl overflow-hidden relative shadow-inner bg-neutral-100 border border-[#E8E8E4] mb-6 group">
                 <img
-                  alt="Yashnobod district campus location"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkBbrELnuFIZxc1diCxvVXWw09wHZbC4GTrntvM1eMfEg12IWuivul1y-b8X_1kxvvVkPqi-Fsq-IgeYDb-AEVhjQCuAie34FannSNFtbUn2vs0uqAKASGT5fH_OzFgFpSWEcYaUaY6ThuYvJkNcz6xhyM74ruc9Fas-LzHCJtgwTUa3JI0u-gn1CnAn1O2a_cGo4XpXdh60RKi8QQKTqTPOMkeqTybGczYG85WLcVjgHqSWfaU6y7JA"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-400"
+                  alt="Deutsch Smart School Yashnobod filiali — deutsch-smart-school-entrance.svg"
+                  src="/deutsch-smart-school-entrance.svg"
+                  onError={(e) => {
+                    const target = e.currentTarget as HTMLImageElement;
+                    if (!target.dataset.fallback) {
+                      target.dataset.fallback = 'true';
+                      target.src = '/assets/aistudio/deutsch-smart-school-entrance-65MP_63a690b7.jpg';
+                    }
+                  }}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-500"
+                  loading="lazy"
                 />
-                <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-lg text-[11px] font-mono font-bold text-neutral-900 shadow-sm border border-neutral-200">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none" />
+                <div className="absolute top-3 left-3 z-10 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-lg text-[11px] font-mono font-bold text-neutral-900 shadow-sm border border-neutral-200">
                   {t.campuses.yashnobodCoords}
                 </div>
-                <div className="absolute bottom-3 right-3">
+                <div className="absolute bottom-3 right-3 z-10">
                   <a
                     href="https://www.google.com/maps?q=41.294615,69.326284"
                     target="_blank"
@@ -181,17 +190,26 @@ export const Campuses: React.FC<CampusesProps> = ({ t }) => {
                 <span>{t.campuses.sergeliAddress}</span>
               </p>
 
-              {/* Map Graphic Preview with Coordinate Pill */}
-              <div className="h-52 rounded-2xl overflow-hidden relative shadow-inner bg-neutral-100 border border-[#E8E8E4] mb-6 group">
+              {/* Sergeli Campus Building Photo with Coordinate Pill */}
+              <div className="h-60 sm:h-72 rounded-2xl overflow-hidden relative shadow-inner bg-neutral-100 border border-[#E8E8E4] mb-6 group">
                 <img
-                  alt="Sergeli Sokin Makon campus location"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO0ePDU7uYaIj6EqHOlSlHK1crdamO_qxcxePJ9wPYkQvIqcP8cMLCah62nFGJ-wIWf8PVswse7Y5-ZyZkvEIGkJsrSv8PyNPXiYDSbDk5zonz1mhSfkHX9myE5zDCSqDpPYUsGjjHwqGwPZYdXdUoJLcy4C-Ry1XfiSvjpw1JRPymDq2QTOoq5cKgfbdpfYlGnBvxypIzBd-KmfOe5dqvnK18pEoR17QN-Fjau45GHwXAivbkAw1RKA"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-400"
+                  alt="Deutsch Smart School Sergeli filiali — deutsch-smart-school-facade(1).svg"
+                  src="/deutsch-smart-school-facade(1).svg"
+                  onError={(e) => {
+                    const target = e.currentTarget as HTMLImageElement;
+                    if (!target.dataset.fallback) {
+                      target.dataset.fallback = 'true';
+                      target.src = '/assets/aistudio/deutsch-smart-school-facade-65MP_61fc56ec.jpg';
+                    }
+                  }}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-500"
+                  loading="lazy"
                 />
-                <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-lg text-[11px] font-mono font-bold text-neutral-900 shadow-sm border border-neutral-200">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none" />
+                <div className="absolute top-3 left-3 z-10 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-lg text-[11px] font-mono font-bold text-neutral-900 shadow-sm border border-neutral-200">
                   {t.campuses.sergeliCoords}
                 </div>
-                <div className="absolute bottom-3 right-3">
+                <div className="absolute bottom-3 right-3 z-10">
                   <a
                     href="https://www.google.com/maps?q=41.188813,69.191109"
                     target="_blank"

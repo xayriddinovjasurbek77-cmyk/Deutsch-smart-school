@@ -7,27 +7,44 @@
   --color-german-red: #DD0000;
   --color-german-red-dark: #B80000;
   --color-german-gold: #FFCE00;
-  --color-german-black: #0D0D0D;
-  --color-surface-warm: #F7F7F5;
-  --color-surface-container: #EEEEEB;
-  --color-surface-low: #F4F4F1;
-  --color-border-subtle: #E8E8E4;
+  --color-german-black: #000000;
 }
 
 @layer base {
   html {
     font-family: var(--font-sans);
     scroll-behavior: smooth;
+    color-scheme: light;
   }
 
   body {
     background-color: #FAF9F6;
-    color: #1A1C1A;
+    color: #171717;
     overflow-x: hidden;
   }
 }
 
-/* Reduced motion preference support */
+/* Custom crisp scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF9F6;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4D4D0;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A8A8A2;
+}
+
+/* Subtle shadows & border helpers */
+.shadow-2xs {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+}
+
+/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;

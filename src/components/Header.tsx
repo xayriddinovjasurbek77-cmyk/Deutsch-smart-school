@@ -102,11 +102,11 @@ export const Header: React.FC<HeaderProps> = ({
             className="flex items-center gap-3 group shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#DD0000] rounded-lg"
           >
             <motion.img
-              whileHover={{ scale: 1.04 }}
+              whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
               alt="Deutsch Smart School Logo"
-              className="h-9 sm:h-10 w-auto object-contain"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhz01Zk3lc02vK0LsF1TsdN6gHP0pKtRX2uV2tbpI5o9vZPYKcyDjNuq7W3cJC9xh1JjjM_caVMsTIlkmFGGuwGcethg0wb8ljlVWvhf_5Utty38bMF07VST5QqNqDvxZHa-UYwphRXAbr6bmkAbP1fWp8re6e0SN4IZLCw6YzlgENikTmrgKWwmSE8K9tlkFi3BIDmg8Atv7cnOO4NopeQkFH0WsJ9CSbyPjmrhrY3MtNmeF42AysVA"
+              className="w-10 h-10 sm:w-11 sm:h-11 object-contain shrink-0"
+              src="/assets/aistudio/deutsch-smart-school-logo_3e40737e.svg"
             />
             <div className="flex flex-col">
               <span className="font-extrabold text-[18px] sm:text-[20px] tracking-tight text-neutral-900 group-hover:text-[#DD0000] transition-colors">
